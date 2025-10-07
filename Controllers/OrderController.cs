@@ -19,27 +19,31 @@ public class OrderController : ControllerBase
 
     // ✅ GET: /api/orders
     [HttpGet]
-    public IActionResult GetAllOrders()
+    public async Task<IActionResult> GetAllOrders()
     {
-        var orders = _context.Orders
-            .Include(o => o.Items)
-            .ToList();
+        // ✅ Use AsNoTracking for read-only queries
+    var orders = await _context.Orders
+        .Include(o => o.Items) // eager load related data
+        .AsNoTracking()
+        .OrderByDescending(o => o.DatePlaced)
+        .ToListAsync();
 
-        return Ok(orders);
+    return Ok(orders);
     }
 
     // ✅ GET: /api/orders/{id}
     [HttpGet("{id}")]
-    public IActionResult GetOrderById(int id)
+    public async Task<IActionResult> GetOrderById(int id)
     {
-        var order = _context.Orders
-            .Include(o => o.Items)
-            .FirstOrDefault(o => o.OrderId == id);
+        var order = await _context.Orders
+        .Include(o => o.Items)
+        .AsNoTracking()
+        .FirstOrDefaultAsync(o => o.OrderId == id);
 
-        if (order == null)
-            return NotFound($"Order with ID {id} not found.");
+    if (order == null)
+        return NotFound();
 
-        return Ok(order);
+    return Ok(order);
     }
 
     // ✅ POST: /api/orders
