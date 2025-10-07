@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj": {}
+    "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj": {}
   },
   "projects": {
-    "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj": {
+    "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
+        "projectUniqueName": "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
         "projectName": "LogiTrack",
-        "projectPath": "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
+        "projectPath": "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\obj\\",
+        "outputPath": "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

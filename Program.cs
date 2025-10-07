@@ -6,7 +6,8 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer; // For Swagger UI middleware
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Caching.Memory; // For Swagger UI middleware
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -101,6 +102,18 @@ using (var scope = app.Services.CreateScope())
             await userManager.AddToRoleAsync(newAdmin, "Manager");
         }
     }
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<LogiTrackContext>();
+    var cache = scope.ServiceProvider.GetRequiredService<IMemoryCache>();
+
+    var items = context.InventoryItems.AsNoTracking().ToList();
+    cache.Set("inventory_list", items, new MemoryCacheEntryOptions
+    {
+        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+    });
 }
 
 app.Run();

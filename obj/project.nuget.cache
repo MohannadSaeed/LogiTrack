@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hxMVv+xzth8=",
+  "dgSpecHash": "Z4rwvU/jXCE=",
   "success": true,
-  "projectFilePath": "D:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
+  "projectFilePath": "d:\\Learning\\Coursera\\Microsoft Full-Stack Developer Professional Certificate\\Deployment and DevOps\\LogiTrack\\LogiTrack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.9\\microsoft.aspnetcore.authentication.jwtbearer.9.0.9.nupkg.sha512",

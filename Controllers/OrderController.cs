@@ -21,14 +21,14 @@ public class OrderController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllOrders()
     {
-        // ✅ Use AsNoTracking for read-only queries
-    var orders = await _context.Orders
-        .Include(o => o.Items) // eager load related data
-        .AsNoTracking()
-        .OrderByDescending(o => o.DatePlaced)
-        .ToListAsync();
+        // Use AsNoTracking for read-only queries and eager load related items
+        var orders = await _context.Orders
+            .Include(o => o.Items)
+            .AsNoTracking()
+            .OrderByDescending(o => o.DatePlaced)
+            .ToListAsync();
 
-    return Ok(orders);
+        return Ok(orders);
     }
 
     // ✅ GET: /api/orders/{id}
@@ -36,25 +36,25 @@ public class OrderController : ControllerBase
     public async Task<IActionResult> GetOrderById(int id)
     {
         var order = await _context.Orders
-        .Include(o => o.Items)
-        .AsNoTracking()
-        .FirstOrDefaultAsync(o => o.OrderId == id);
+            .Include(o => o.Items)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(o => o.OrderId == id);
 
-    if (order == null)
-        return NotFound();
+        if (order == null)
+            return NotFound();
 
-    return Ok(order);
+        return Ok(order);
     }
 
     // ✅ POST: /api/orders
     [HttpPost]
-    public IActionResult CreateOrder([FromBody] Order order)
+    public async Task<IActionResult> CreateOrder([FromBody] Order order)
     {
         if (order == null || order.Items == null || !order.Items.Any())
             return BadRequest("Order must include at least one item.");
 
-        _context.Orders.Add(order);
-        _context.SaveChanges();
+        await _context.Orders.AddAsync(order);
+        await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetOrderById), new { id = order.OrderId }, order);
     }
@@ -62,14 +62,14 @@ public class OrderController : ControllerBase
     // ✅ DELETE: /api/orders/{id}
     [Authorize(Roles = "Manager")]
     [HttpDelete("{id}")]
-    public IActionResult DeleteOrder(int id)
+    public async Task<IActionResult> DeleteOrder(int id)
     {
-        var order = _context.Orders.Include(o => o.Items).FirstOrDefault(o => o.OrderId == id);
+        var order = await _context.Orders.Include(o => o.Items).FirstOrDefaultAsync(o => o.OrderId == id);
         if (order == null)
             return NotFound($"Order with ID {id} not found.");
 
         _context.Orders.Remove(order);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return NoContent();
     }
 }

@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using LogiTrack.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LogiTrack.Controllers;
+
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class InventoryController : ControllerBase
@@ -11,6 +14,7 @@ namespace LogiTrack.Controllers;
         private readonly LogiTrackContext _context;
         private readonly IMemoryCache _cache;
         private readonly ILogger<InventoryController> _logger;
+        private const string InventoryCacheKey = "inventory_list";
 
         public InventoryController(LogiTrackContext context, IMemoryCache cache, ILogger<InventoryController> logger)
         {
@@ -23,9 +27,7 @@ namespace LogiTrack.Controllers;
         [HttpGet]
         public async Task<IActionResult> GetInventoryItems()
         {
-            const string cacheKey = "inventory_list";
-
-            if (!_cache.TryGetValue(cacheKey, out List<InventoryItem>? items))
+            if (!_cache.TryGetValue(InventoryCacheKey, out List<InventoryItem>? items))
             {
                 _logger.LogInformation("Cache miss — fetching inventory from DB...");
 
@@ -41,7 +43,7 @@ namespace LogiTrack.Controllers;
                     SlidingExpiration = TimeSpan.FromSeconds(10)
                 };
 
-                _cache.Set(cacheKey, items, cacheOptions);
+                _cache.Set(InventoryCacheKey, items, cacheOptions);
             }
             else
             {
@@ -62,9 +64,10 @@ namespace LogiTrack.Controllers;
             await _context.SaveChangesAsync();
 
             // Clear cache when data changes
-            _cache.Remove("inventory_list");
+            _cache.Remove(InventoryCacheKey);
 
-            return CreatedAtAction(nameof(GetInventoryItems), new { id = item.ItemId }, item);
+            // Return a Created response that points to the item GET-by-id route
+            return CreatedAtAction(nameof(GetInventoryItem), new { id = item.ItemId }, item);
         }
 
         // ✅ DELETE: api/inventory/{id}
@@ -79,8 +82,22 @@ namespace LogiTrack.Controllers;
             await _context.SaveChangesAsync();
 
             // Invalidate cache
-            _cache.Remove("inventory_list");
+            _cache.Remove(InventoryCacheKey);
 
             return NoContent();
+        }
+
+        // GET: api/inventory/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetInventoryItem(int id)
+        {
+            var item = await _context.InventoryItems
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.ItemId == id);
+
+            if (item == null)
+                return NotFound();
+
+            return Ok(item);
         }
     }
