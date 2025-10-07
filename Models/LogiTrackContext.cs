@@ -12,9 +12,11 @@ public class LogiTrackContext : DbContext
         public DbSet<InventoryItem> InventoryItems { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
             modelBuilder.Entity<Order>()
-                .HasMany(o => o.Items);
+                .HasMany(o => o.Items)
+                .WithOne()
+                .HasForeignKey(i => i.OrderId);
         }
 }

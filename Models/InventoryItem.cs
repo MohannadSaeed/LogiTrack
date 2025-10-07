@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LogiTrack.Models;
 
@@ -14,9 +15,11 @@ public class InventoryItem
         public int Quantity { get; set; }
 
         public string Location { get; set; }
-
+        
+        [ForeignKey("Order")]
+        public int? OrderId { get; set; } 
         public void DisplayInfo()
-        {
-            Console.WriteLine($"Item: {Name} | Quantity: {Quantity} | Location: {Location}");
-        }
+    {
+        Console.WriteLine($"Item: {Name} | Quantity: {Quantity} | Location: {Location}");
+    }
 }

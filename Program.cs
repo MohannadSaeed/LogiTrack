@@ -22,22 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<LogiTrackContext>();
-    context.Database.EnsureCreated(); // ensures DB exists
 
-    if (!context.InventoryItems.Any())
-    {
-        context.InventoryItems.Add(new InventoryItem
-        {
-            Name = "Pallet Jack",
-            Quantity = 12,
-            Location = "Warehouse A"
-        });
-        context.SaveChanges();
-    }
-}
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

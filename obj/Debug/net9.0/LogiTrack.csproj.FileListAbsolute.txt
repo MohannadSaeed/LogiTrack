@@ -156,3 +156,4 @@ D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Dep
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\LogiTrack.pdb
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\LogiTrack.genruntimeconfig.cache
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\ref\LogiTrack.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\LogiTrack.sourcelink.json
