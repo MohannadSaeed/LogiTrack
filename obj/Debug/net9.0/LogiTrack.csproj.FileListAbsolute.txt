@@ -157,3 +157,16 @@ D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Dep
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\LogiTrack.genruntimeconfig.cache
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\ref\LogiTrack.dll
 D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\obj\Debug\net9.0\LogiTrack.sourcelink.json
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Learning\Coursera\Microsoft Full-Stack Developer Professional Certificate\Deployment and DevOps\LogiTrack\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

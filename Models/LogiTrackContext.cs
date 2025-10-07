@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LogiTrack.Models;
 
-public class LogiTrackContext : DbContext
+public class LogiTrackContext : IdentityDbContext<ApplicationUser>
 {
     public LogiTrackContext(DbContextOptions<LogiTrackContext> options)
             : base(options)
@@ -14,6 +15,7 @@ public class LogiTrackContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.Items)
                 .WithOne()
